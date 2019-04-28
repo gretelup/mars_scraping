@@ -11,17 +11,21 @@ conn = 'mongodb://localhost:27017'
 # Pass connection to the pymongo instance.
 client = pymongo.MongoClient(conn)
 db = client.mars_db
+info = db.info
+
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
 
-    # Find one record of data from the mongo database
-    info_dict = db.info.find_one()
+    if (info.count_documents({})==0):
+        info_dict = scrape_mars.scrape() 
+        info.update_one({}, {"$set":info_dict}, upsert=True)
+    else:
+        info_dict = db.info.find_one()
 
     # Return template and data
     return render_template("index.html", info_dict=info_dict)
-
 
 # Route that will trigger the scrape function
 @app.route("/scrape")
@@ -31,8 +35,7 @@ def scrape():
     mars_dict = scrape_mars.scrape()
     
     # Update the Mongo database with scraped info
-    info = db.info
-    info.update({}, mars_dict, upsert=True)
+    info.update_one({}, {"$set":mars_dict}, upsert=True)
     # Redirect back to home page
     return redirect("/")
 

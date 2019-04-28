@@ -86,11 +86,12 @@ def facts_scraper():
     facts_df = pd.read_html(url)[0]
     
     # Reformat dataframe
-    facts_df = facts_df.rename(columns={0: "Parameter" , 1: "Values"})
-    facts_df = facts_df.set_index("Parameter")
+    facts_df = facts_df.rename(columns={1: "Value"})
+    facts_df = facts_df.set_index(0)
 
     # Convert dataframe to htlp and clean up newlines
-    html_facts = facts_df.to_html().replace("\n", "").replace(' border="1"', '')
+    html_facts = facts_df.to_html().replace("\n", "").replace('<tr style="text-align: right;">', '').\
+    replace("    </tr>    <tr>      <th>0</th>      <th></th>    </tr>  ", "")
         
     # Create dictionary of results to return
     facts_dict = {"html_facts": html_facts}
