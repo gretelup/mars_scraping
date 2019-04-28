@@ -128,7 +128,8 @@ def hemi_scraper():
                 soup = bs(browser.html, "html.parser")
 
                 # Get link to full resolution image
-                hemi_full_url = soup.find("div", class_="downloads").find_all("li")[1].find("a")["href"]
+                hemi_full = soup.find("img", class_ = "wide-image")["src"]
+                hemi_full_url = f"https://astrogeology.usgs.gov/{hemi_full}"
                 
             hemi_image_dict = {"title": hemi_name, "img_url": hemi_full_url}      
             hemisphere_image_urls.append(hemi_image_dict)
