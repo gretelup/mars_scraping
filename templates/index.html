@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <title>Mission to Mars</title>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1>Mission to Mars</h1>
+        <button type="button" class="btn btn-primary" href="/scrape">Scrape</button>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h4>Latest Mars News</h4>
+                <hr>
+                <h6>{{info_dict.news_title}}</h6>
+                <p>
+                    {{info_dict.news_p}}
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col md-7">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Featured Mars Image</h5>
+                    </div>
+                    <img src="{{info_dict.featured_image_url}}" class="card-img-top" alt="Featured Mars Image">
+                </div>
+            </div>
+            <div class="col md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h6 class="card-title">Mars Facts</h6>
+                        {{info_dict.html_facts}} 
+                    </div>
+                </div>
+                <div class="card top-buffer">
+                    <div class="card-body">
+                        <h6 class="card-title">Mars Weather</h6>
+                        <hr>
+                        <p>{{info_dict.mars_weather}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class ="row">
+            <div class="col-md top-buffer">
+                <h5>Mars Hemispheres</h5>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md"> 
+                <div class="card">
+                    <img src="{{info_dict.hemisphere_image_urls[0].img_url}}" class="card-img-top" alt="Mars Hemisphere">
+                    <div class="card-body">
+                        <h6 class="card-title">{{info_dict.hemisphere_image_urls[0].title}}</h6>
+                        url: {{info_dict.hemisphere_image_urls[0].img_url}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md"> 
+                <div class="card">
+                    <img src="#" class="card-img-top" alt="Mars Hemisphere">
+                    <div class="card-body">
+                        <h6 class="card-title">{{info_dict.hemisphere_image_urls[1].title}}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md top-buffer"> 
+                <div class="card">
+                    <img src="#" class="card-img-top" alt="Mars Hemisphere">
+                    <div class="card-body">
+                        <h6 class="card-title"> Mars Hemisphere</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md top-buffer"> 
+                <div class="card">
+                    <img src="#" class="card-img-top" alt="Mars Hemisphere">
+                    <div class="card-body">
+                        <h6 class="card-title"> Mars Hemisphere</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+
+</body>
+</html>
