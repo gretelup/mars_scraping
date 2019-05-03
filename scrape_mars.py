@@ -24,14 +24,14 @@ def news_scraper():
         soup = bs(browser.html, "html.parser")
 
         # Get Latest News Title
-        news_title_html = soup.find("div", class_='image_and_description_container').find("a")["href"]
-        news_title = " ".join(news_title_html.split("/")[3].split("-")).title()
+        news_title= soup.find("div", class_="content_title").text.replace("\n", "")
 
         # Get Text for latest news 
-        news_p = soup.find("div", class_="rollover_description_inner").text
+        news_p = soup.find("div", class_= "rollover_description_inner").text
         
     # Create dictionary of results to return
     news_dict = {"news_title": news_title, "news_p": news_p}
+
     return(news_dict)
 
 def image_scraper():
