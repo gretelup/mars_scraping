@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../static/style.css">
     <title>Mission to Mars</title>
 </head>
 
@@ -62,46 +61,17 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md top-buffer"> 
-                <div class="card">
-                    <img src="{{info_dict.hemisphere_image_urls[0].img_url}}" class="card-img-top" alt="Mars Hemisphere">
+            {% for info_dict in info_dict.hemisphere_image_urls %}
+            <div class="col-md-6">
+                <div class="card text-white bg-dark" style="margin: 30px;">
+                    <img class="card-img-top" src="{{ info_dict.img_url }}" />
                     <div class="card-body">
-                        <h5 class="card-title">{{info_dict.hemisphere_image_urls[0].title}}</h5>
+                        <p class="card-text">{{ info_dict.title }}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md top-buffer"> 
-                <div class="card">
-                    <img src="{{info_dict.hemisphere_image_urls[1].img_url}}" class="card-img-top" alt="Mars Hemisphere">
-                    <div class="card-body">
-                        <h5 class="card-title">{{info_dict.hemisphere_image_urls[1].title}}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md top-buffer"> 
-                <div class="card">
-                    <img src="{{info_dict.hemisphere_image_urls[2].img_url}}" class="card-img-top" alt="Mars Hemisphere">
-                    <div class="card-body">
-                        <h5 class="card-title">{{info_dict.hemisphere_image_urls[2].title}}</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md top-buffer"> 
-                <div class="card">
-                    <img src="{{info_dict.hemisphere_image_urls[3].img_url}}" class="card-img-top" alt="Mars Hemisphere">
-                    <div class="card-body">
-                        <h5 class="card-title">{{info_dict.hemisphere_image_urls[3].title}}</h5>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
-</body>
-
-
-
-
 </body>
 </html>
