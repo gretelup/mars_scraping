@@ -36,8 +36,7 @@ To get a local copy up and running follow these simple example steps:
 ### Prerequisites
 
 * Chrome Web Browser - version 79
-* ChromeDriver - version 79.0.3945.36
-  *  [ChromeDriver downloads](https://chromedriver.chromium.org/downloads)
+  * If using a different version of Chrome, please download and replace ChromeDriver appropriately: [ChromeDriver Downloads](https://chromedriver.chromium.org/downloads)
 * MongoDB
   * [Mac Install Guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
   * [Windows Install Guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
