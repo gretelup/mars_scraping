@@ -6,8 +6,7 @@ from bs4 import BeautifulSoup as bs
 def init_browser():
     """Initializes a splinter Browser object"""
     
-    executable_path = {"executable_path": "/usr/local/bin/chromedriver"}
-    return Browser("chrome", **executable_path, headless=True)
+    return Browser("chrome", executable_path="chromedriver", headless=True)
 
 def news_scraper():
 
