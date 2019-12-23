@@ -6,25 +6,17 @@ import scrape_mars
 app = Flask(__name__)
 
 # Create connection variable
-conn = 'mongodb://localhost:27017'
+conn = 'mongodb://localhost:27017/mars_db'
 
 # Pass connection to the pymongo instance.
 client = pymongo.MongoClient(conn)
 db = client.mars_db
-info = db.info
-
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
 def home():
 
-    if (info.count_documents({})==0):
-        info_dict = scrape_mars.scrape() 
-        info.update_one({}, {"$set":info_dict}, upsert=True)
-    else:
-        info_dict = db.info.find_one()
-
-    # Return template and data
+    info_dict = db.info.find_one()
     return render_template("index.html", info_dict=info_dict)
 
 # Route that will trigger the scrape function
@@ -35,7 +27,8 @@ def scrape():
     mars_dict = scrape_mars.scrape()
     
     # Update the Mongo database with scraped info
-    info.update_one({}, {"$set":mars_dict}, upsert=True)
+    db.info.update_one({}, {"$set":mars_dict}, upsert=True)
+    
     # Redirect back to home page
     return redirect("/")
 
