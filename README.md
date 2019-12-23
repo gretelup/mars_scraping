@@ -6,18 +6,13 @@ Web application that scrapes various websites for data related to the Mission to
 
 ## Table of contents
 
-* [About the Project](#about-the-project)
-  * [Technologies Used](#technologies-used)
+* [Technologies Used](#technologies-used)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Development Process](#development-process)
 * [Resources](#resources)
 * [Contact](#contact)
-
-## About the Project
-
-words
 
 ## Technologies Used
 
@@ -29,6 +24,7 @@ words
   * pymongo - version 3.9.0
   * selenium - version 3.141.0
   * splinter - version 0.13.0
+* MongoDB
 * HTML
 * CSS
   * Bootstrap - version 4.1.3
@@ -39,8 +35,9 @@ To get a local copy up and running follow these simple example steps:
 
 ### Prerequisites
 
-* Chrome Web Browser
-* Chromedriver
+* Chrome Web Browser - version 79
+* ChromeDriver - version 79.0.3945.36
+  *  [ChromeDriver downloads](https://chromedriver.chromium.org/downloads)
 * MongoDB
   * [Mac Install Guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/)
   * [Windows Install Guide](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/)
@@ -78,3 +75,7 @@ To get a local copy up and running follow these simple example steps:
 * [Mars Weather twitter account](https://twitter.com/marswxreport?lang=en)
 * [Mars Facts webpage](https://space-facts.com/mars/)
 * [USGS Astrogeology site](https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars)
+
+## Contact
+
+Created by [Gretel Uptegrove](https://gretelup.github.io/)
